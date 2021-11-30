@@ -16,8 +16,8 @@ Vamos separar em dois nivéis de apreendizado da Regressão Linear.
 1º Realizaremos um modelo simples e explicando o passo a passo matématicamente o que acontece com o modelo até ele
 encontrar a reta que melhor se encaixa entre os pontos.
 
-* Calculo modelo Regressão Linear populacional representado pela expressão:
-* Calculo da correlação dos nossos dados representado pela expressão:
+* Calculo modelo Regressão Linear populacional.
+* Calculo da correlação dos nossos dados.
     
 2º Usaremos a lib do [`SCIKIT-LEARN`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) para demonstrar a sua praticidade.  
 ''')
@@ -92,7 +92,7 @@ ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
 ax.set_title("Não Determinístico")
 
 plt.show()"""
-dados = st.sidebar.checkbox('Código da criação dos gráficos')
+dados = st.checkbox('Código da criação dos gráficos')
 
 
 if dados:
@@ -141,7 +141,7 @@ ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
                      color="blue", alpha=0.5)
 ax.set_title("Não Determinístico")
 
-plt.show()
+#plt.show()
 
 st.pyplot(plt)
 
@@ -197,7 +197,7 @@ df_non['non_det_xy'] = df_non['non_det_x'] * df_non['non_det_y']
 df_non['non_det_x^2'] = df_non['non_det_x'] ** 2
 df_non['non_det_y^2'] = df_non['non_det_y'] ** 2'''
 
-dados_2 = st.sidebar.checkbox('Código da criação das colunas')
+dados_2 = st.checkbox('Código da criação das colunas')
 
 if dados_2:
     with st.spinner('Aguarde o código está sendo carregado...'):
@@ -324,7 +324,7 @@ ax.set_title("Não Determinístico")
 
 plt.show()'''
 
-dados_5 = st.sidebar.checkbox('Código da criação do gráfico ponto')
+dados_5 = st.checkbox('Código da criação do gráfico ponto')
 
 if dados_5:
     with st.spinner('Aguarde o código está sendo carregado...'):
@@ -348,7 +348,7 @@ eixo_y = y
 plt.axhline(y=eixo_y, xmin=0, xmax=0.465, color="black", linestyle="--")
 plt.annotate("Ponto Calculado", (.65, 9.5), fontsize=15)
 ax.set_title("Não Determinístico")
-plt.show()
+#plt.show()
 st.pyplot(plt)
 
 st.markdown('''---''')
@@ -376,7 +376,7 @@ ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
 ax.set_title("Não Determinístico")
 plt.show()'''
 
-dados_6 = st.sidebar.checkbox('Código da criação do gráfico reta melhor ajuste')
+dados_6 = st.checkbox('Código da criação do gráfico reta melhor ajuste')
 
 if dados_6:
     with st.spinner('Aguarde o código está sendo carregado...'):
@@ -402,7 +402,7 @@ label = "Reta de melhor ajuste com b1 {0:.2f} * x + b0 {1:.2f}"
 ax.plot(df_non['non_det_x'], reta_ajuste, color='r', linestyle='--', linewidth=2, label=label.format(b1, b0))
 ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
 ax.set_title("Não Determinístico")
-plt.show()
+#plt.show()
 st.pyplot(plt)
 
 st.markdown('''---''')
@@ -428,7 +428,7 @@ ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
 ax.set_title("Não Determinístico")
 plt.show()'''
 
-dados_7 = st.sidebar.checkbox('Código da criação do gráfico multiplas retas')
+dados_7 = st.checkbox('Código da criação do gráfico multiplas retas')
 
 if dados_7:
     with st.spinner('Aguarde o código está sendo carregado...'):
@@ -451,7 +451,7 @@ for b1, b0 in zip(b_um, b_zero):
 
 ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
 ax.set_title("Não Determinístico")
-plt.show()
+#plt.show()
 st.pyplot(plt)
 
 st.markdown('''---''')
