@@ -51,56 +51,6 @@ Vamos deixar um exemplo para tomar mais claro a explicação.
 
 ---''')
 
-code = """np.random.seed(42)
-det_x = np.arange(0, 10, 0.1)
-det_y = 2 * det_x + 3
-
-# transformando em data frame deterministicos
-series_det = pd.Series(det_y, det_x)
-df_det = pd.DataFrame(series_det, columns=['det_y'])
-df_det.reset_index(drop=False, inplace=True)
-df_det = df_det.rename(columns={'index': 'det_x'})
-
-feature_name_det = "det_x"
-target_name_det = "det_y"
-data_det, target_det = df_det[[feature_name_det]], df_det[target_name_det]
-
-# exemplo de plots não determinísticos
-non_det_x = np.arange(0, 10, 0.1)
-non_det_y = 2 * non_det_x + np.random.normal(size=100)
-
-# transformando em data frame não deterministicos
-series = pd.Series(non_det_y, non_det_x)
-df_non = pd.DataFrame(series, columns=['non_det_y'])
-df_non.reset_index(drop=False, inplace=True)
-df_non = df_non.rename(columns={'index': 'non_det_x'})
-
-feature_name_non = "non_det_x"
-target_name_non = "non_det_y"
-data_non, target_non = df_non[[feature_name_non]], df_non[target_name_non]
-
-plt.figure(figsize=(15, 5), constrained_layout=False)
-
-ax = plt.subplot(1, 2, 1)
-ax = sns.scatterplot(data=df_det, x=feature_name_det, y=target_name_det,
-                     color="blue", alpha=0.5)
-ax.set_title("Determinístico")
-
-ax = plt.subplot(1, 2, 2)
-ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
-                     color="blue", alpha=0.5)
-ax.set_title("Não Determinístico")
-
-plt.show()"""
-dados = st.checkbox('Código da criação dos gráficos')
-
-
-if dados:
-    with st.spinner('Aguarde o código está sendo carregado...'):
-        time.sleep(3)
-        st.code(code, language='python')
-    st.success('Feito!')
-
 with st.spinner('Aguarde o gráfico ser criado...'):
     time.sleep(3)
     np.random.seed(42)
@@ -148,6 +98,54 @@ with st.spinner('Aguarde o gráfico ser criado...'):
     st.pyplot(plt)
 st.success('Feito!')
 
+code = """np.random.seed(42)
+det_x = np.arange(0, 10, 0.1)
+det_y = 2 * det_x + 3
+
+# transformando em data frame deterministicos
+series_det = pd.Series(det_y, det_x)
+df_det = pd.DataFrame(series_det, columns=['det_y'])
+df_det.reset_index(drop=False, inplace=True)
+df_det = df_det.rename(columns={'index': 'det_x'})
+
+feature_name_det = "det_x"
+target_name_det = "det_y"
+data_det, target_det = df_det[[feature_name_det]], df_det[target_name_det]
+
+# exemplo de plots não determinísticos
+non_det_x = np.arange(0, 10, 0.1)
+non_det_y = 2 * non_det_x + np.random.normal(size=100)
+
+# transformando em data frame não deterministicos
+series = pd.Series(non_det_y, non_det_x)
+df_non = pd.DataFrame(series, columns=['non_det_y'])
+df_non.reset_index(drop=False, inplace=True)
+df_non = df_non.rename(columns={'index': 'non_det_x'})
+
+feature_name_non = "non_det_x"
+target_name_non = "non_det_y"
+data_non, target_non = df_non[[feature_name_non]], df_non[target_name_non]
+
+plt.figure(figsize=(15, 5), constrained_layout=False)
+
+ax = plt.subplot(1, 2, 1)
+ax = sns.scatterplot(data=df_det, x=feature_name_det, y=target_name_det,
+                     color="blue", alpha=0.5)
+ax.set_title("Determinístico")
+
+ax = plt.subplot(1, 2, 2)
+ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
+                     color="blue", alpha=0.5)
+ax.set_title("Não Determinístico")
+
+plt.show()"""
+dados = st.checkbox('Código da criação dos gráficos')
+
+if dados:
+    with st.spinner('Aguarde o código está sendo carregado...'):
+        time.sleep(3)
+        st.code(code, language='python')
+    st.success('Feito!')
 
 st.warning("""Olhando rapidamente você já consegue ver uma diferença importante, que apesar dos dois gráficos estarem 
 mostrando pontos que se espalham sobre uma “reta virtual”, um deles não segue um padrão exato, determinístico. 
