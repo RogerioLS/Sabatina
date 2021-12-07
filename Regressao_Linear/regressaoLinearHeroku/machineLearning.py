@@ -101,49 +101,53 @@ if dados:
         st.code(code, language='python')
     st.success('Feito!')
 
-np.random.seed(42)
-det_x = np.arange(0, 10, 0.1)
-det_y = 2 * det_x + 3
+with st.spinner('Aguarde o gráfico ser criado...'):
+    time.sleep(3)
+    np.random.seed(42)
+    det_x = np.arange(0, 10, 0.1)
+    det_y = 2 * det_x + 3
 
-# transformando em data frame deterministicos
-series_det = pd.Series(det_y, det_x)
-df_det = pd.DataFrame(series_det, columns=['det_y'])
-df_det.reset_index(drop=False, inplace=True)
-df_det = df_det.rename(columns={'index': 'det_x'})
+    # transformando em data frame deterministicos
+    series_det = pd.Series(det_y, det_x)
+    df_det = pd.DataFrame(series_det, columns=['det_y'])
+    df_det.reset_index(drop=False, inplace=True)
+    df_det = df_det.rename(columns={'index': 'det_x'})
 
-feature_name_det = "det_x"
-target_name_det = "det_y"
-data_det, target_det = df_det[[feature_name_det]], df_det[target_name_det]
+    feature_name_det = "det_x"
+    target_name_det = "det_y"
+    data_det, target_det = df_det[[feature_name_det]], df_det[target_name_det]
 
-# exemplo de plots não determinísticos
-non_det_x = np.arange(0, 10, 0.1)
-non_det_y = 2 * non_det_x + np.random.normal(size=100)
+    # exemplo de plots não determinísticos
+    non_det_x = np.arange(0, 10, 0.1)
+    non_det_y = 2 * non_det_x + np.random.normal(size=100)
 
-# transformando em data frame não deterministicos
-series = pd.Series(non_det_y, non_det_x)
-df_non = pd.DataFrame(series, columns=['non_det_y'])
-df_non.reset_index(drop=False, inplace=True)
-df_non = df_non.rename(columns={'index': 'non_det_x'})
+    # transformando em data frame não deterministicos
+    series = pd.Series(non_det_y, non_det_x)
+    df_non = pd.DataFrame(series, columns=['non_det_y'])
+    df_non.reset_index(drop=False, inplace=True)
+    df_non = df_non.rename(columns={'index': 'non_det_x'})
 
-feature_name_non = "non_det_x"
-target_name_non = "non_det_y"
-data_non, target_non = df_non[[feature_name_non]], df_non[target_name_non]
+    feature_name_non = "non_det_x"
+    target_name_non = "non_det_y"
+    data_non, target_non = df_non[[feature_name_non]], df_non[target_name_non]
 
-plt.figure(figsize=(15, 5), constrained_layout=False)
+    plt.figure(figsize=(15, 5), constrained_layout=False)
 
-ax = plt.subplot(1, 2, 1)
-ax = sns.scatterplot(data=df_det, x=feature_name_det, y=target_name_det,
-                     color="blue", alpha=0.5)
-ax.set_title("Determinístico")
+    ax = plt.subplot(1, 2, 1)
+    ax = sns.scatterplot(data=df_det, x=feature_name_det, y=target_name_det,
+                         color="blue", alpha=0.5)
+    ax.set_title("Determinístico")
 
-ax = plt.subplot(1, 2, 2)
-ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
-                     color="blue", alpha=0.5)
-ax.set_title("Não Determinístico")
+    ax = plt.subplot(1, 2, 2)
+    ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
+                         color="blue", alpha=0.5)
+    ax.set_title("Não Determinístico")
 
-#plt.show()
+    #plt.show()
 
-st.pyplot(plt)
+    st.pyplot(plt)
+st.success('Feito!')
+
 
 st.warning("""Olhando rapidamente você já consegue ver uma diferença importante, que apesar dos dois gráficos estarem 
 mostrando pontos que se espalham sobre uma “reta virtual”, um deles não segue um padrão exato, determinístico. 
@@ -332,24 +336,27 @@ if dados_5:
         st.code(code_5, language='python')
     st.success('Feito!')
 
-point = pd.DataFrame({'x': [4.65], 'y': [9.19]})
-plt.figure(constrained_layout=True)
-ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
-                     color="blue", alpha=0.5)
+with st.spinner('Aguarde o gráfico ser criado...'):
+    time.sleep(3)
+    point = pd.DataFrame({'x': [4.65], 'y': [9.19]})
+    plt.figure(constrained_layout=True)
+    ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
+                         color="blue", alpha=0.5)
 
-label = "x {0:.2f} e y {1:.2f}"
-ax = point.plot(x='x', y='y', ax=ax, marker='o', markersize=4, color="red", label=label.format(x, y))
-ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
+    label = "x {0:.2f} e y {1:.2f}"
+    ax = point.plot(x='x', y='y', ax=ax, marker='o', markersize=4, color="red", label=label.format(x, y))
+    ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
 
-eixo_x = x
-plt.axvline(x=eixo_x, ymin=0, ymax=0.47, color="black", linestyle="--")
+    eixo_x = x
+    plt.axvline(x=eixo_x, ymin=0, ymax=0.47, color="black", linestyle="--")
 
-eixo_y = y
-plt.axhline(y=eixo_y, xmin=0, xmax=0.465, color="black", linestyle="--")
-plt.annotate("Ponto Calculado", (.65, 9.5), fontsize=15)
-ax.set_title("Não Determinístico")
-#plt.show()
-st.pyplot(plt)
+    eixo_y = y
+    plt.axhline(y=eixo_y, xmin=0, xmax=0.465, color="black", linestyle="--")
+    plt.annotate("Ponto Calculado", (.65, 9.5), fontsize=15)
+    ax.set_title("Não Determinístico")
+    #plt.show()
+    st.pyplot(plt)
+st.success('Feito!')
 
 st.markdown('''---''')
 
@@ -393,17 +400,19 @@ def linear_model(x, beta_um, beta_zero):
 
 reta_ajuste = linear_model(df_non['non_det_x'], b1, b0)
 
-# Plot da reta de melhor ajuste
-plt.figure(constrained_layout=True)
-ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
-                     color="blue", alpha=0.5)
+with st.spinner('Aguarde o gráfico ser criado...'):
+    time.sleep(3)
+    plt.figure(constrained_layout=True)
+    ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
+                         color="blue", alpha=0.5)
 
-label = "Reta de melhor ajuste com b1 {0:.2f} * x + b0 {1:.2f}"
-ax.plot(df_non['non_det_x'], reta_ajuste, color='r', linestyle='--', linewidth=2, label=label.format(b1, b0))
-ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
-ax.set_title("Não Determinístico")
-#plt.show()
-st.pyplot(plt)
+    label = "Reta de melhor ajuste com b1 {0:.2f} * x + b0 {1:.2f}"
+    ax.plot(df_non['non_det_x'], reta_ajuste, color='r', linestyle='--', linewidth=2, label=label.format(b1, b0))
+    ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
+    ax.set_title("Não Determinístico")
+    #plt.show()
+    st.pyplot(plt)
+st.success('Feito!')
 
 st.markdown('''---''')
 
@@ -439,20 +448,23 @@ if dados_7:
 b_um = [1.01, 2.01, -1.59]
 b_zero = [-2.1, -0.17, 17]
 
-plt.figure(constrained_layout=True)
-ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
-                     color="blue", alpha=0.5)
+with st.spinner('Aguarde o gráfico ser criado...'):
+    time.sleep(3)
+    plt.figure(constrained_layout=True)
+    ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
+                         color="blue", alpha=0.5)
 
-label = "b1 {0:.2f} * x + b0 {1:.2f}"
-for b1, b0 in zip(b_um, b_zero):
-    reta_ajuste = linear_model(df_non['non_det_x'], b1, b0)
-    ax.plot(df_non['non_det_x'], reta_ajuste,
-            label=label.format(b1, b0))
+    label = "b1 {0:.2f} * x + b0 {1:.2f}"
+    for b1, b0 in zip(b_um, b_zero):
+        reta_ajuste = linear_model(df_non['non_det_x'], b1, b0)
+        ax.plot(df_non['non_det_x'], reta_ajuste,
+                label=label.format(b1, b0))
 
-ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
-ax.set_title("Não Determinístico")
-#plt.show()
-st.pyplot(plt)
+    ax.legend(loc='center left', bbox_to_anchor=(-0.25, 1.25), ncol=1)
+    ax.set_title("Não Determinístico")
+    #plt.show()
+    st.pyplot(plt)
+st.success('Feito!')
 
 st.markdown('''---''')
 
@@ -600,14 +612,16 @@ lm_model.fit(non_det_x.reshape(-1, 1), non_det_y)
 b1 = lm_model.coef_
 b0 = lm_model.intercept_
 
-# Plot da reta de melhor ajuste
-plt.figure(constrained_layout=True)
-ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
-                     color="blue", alpha=0.5)
-plt.plot(non_det_x, ((non_det_x * b1) + b0), color='r', linestyle='--', linewidth=2)
-ax.set_title("Não Determinístico")
-plt.show()
-st.pyplot(plt)
+with st.spinner('Aguarde o gráfico ser criado...'):
+    time.sleep(3)
+    plt.figure(constrained_layout=True)
+    ax = sns.scatterplot(data=df_non, x=feature_name_non, y=target_name_non,
+                         color="blue", alpha=0.5)
+    plt.plot(non_det_x, ((non_det_x * b1) + b0), color='r', linestyle='--', linewidth=2)
+    ax.set_title("Não Determinístico")
+    #plt.show()
+    st.pyplot(plt)
+st.success('Feito!')
 
 r_squared = lm_model.score(non_det_x.reshape(-1, 1), non_det_y)
 
