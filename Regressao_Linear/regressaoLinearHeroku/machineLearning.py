@@ -51,7 +51,6 @@ Vamos deixar um exemplo para tomar mais claro a explicação.
 
 ---''')
 
-
 with st.spinner('Aguarde o gráfico ser criado...'):
     time.sleep(3)
     np.random.seed(42)
