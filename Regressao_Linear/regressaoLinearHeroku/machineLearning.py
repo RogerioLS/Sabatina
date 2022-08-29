@@ -477,8 +477,9 @@ A função do coeficiente de correlação é determinar qual é a intensidade da
 ou informações conhecidas. O valor do coeficiente de correlação pode variar entre -1 e 1 e o resultado obtido define se 
 a correlação é negativa ou positiva''')
 
-image = Image.open('correlacao.png')
+image = Image.open('correlacao_p.png')
 st.image(image, caption='Tabela de correlação')
+
 
 st.markdown('''
 #### Expressão da correlação.
