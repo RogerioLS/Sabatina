@@ -6,6 +6,8 @@ import pandas as pd
 import seaborn as sns
 import time
 from PIL import Image
+from PIL import Image
+import os
 import math
 from sklearn.linear_model import LinearRegression
 
