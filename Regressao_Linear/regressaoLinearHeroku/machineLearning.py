@@ -9,6 +9,11 @@ from PIL import Image
 import math
 from sklearn.linear_model import LinearRegression
 
+@st.cache
+def load_image(img):
+	im = Image.open(os.path.join(img))
+	return im
+
 st.info(f'''EMENTA
 
 Vamos separar em dois nivéis de apreendizado da Regressão Linear.
@@ -477,9 +482,9 @@ A função do coeficiente de correlação é determinar qual é a intensidade da
 ou informações conhecidas. O valor do coeficiente de correlação pode variar entre -1 e 1 e o resultado obtido define se 
 a correlação é negativa ou positiva''')
 
-image = Image.open(correlacao_p.png)
-st.image(image, caption='Tabela de correlação')
-
+#image = Image.open('correlacao_p')
+#st.image(image, caption='Tabela de correlação')
+st.image(load_image('correlacao_p.png'),  caption='Tabela de correlação')
 
 st.markdown('''
 #### Expressão da correlação.
