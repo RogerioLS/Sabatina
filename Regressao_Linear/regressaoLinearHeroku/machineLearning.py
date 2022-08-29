@@ -6,15 +6,10 @@ import pandas as pd
 import seaborn as sns
 import time
 from PIL import Image
-from PIL import Image
 import os
 import math
 from sklearn.linear_model import LinearRegression
 
-@st.cache
-def load_image(img):
-	im = Image.open(os.path.join(img))
-	return im
 
 st.info(f'''EMENTA
 
@@ -486,7 +481,9 @@ a correlação é negativa ou positiva''')
 
 #image = Image.open('correlacao_p')
 #st.image(image, caption='Tabela de correlação')
-st.image(load_image('correlacao_p.png'),  caption='Tabela de correlação')
+path = os.path.dirname(__file__)
+my_file = path+'/correlacao_p.png'
+st.image(my_file,  caption='Tabela de correlação')
 
 st.markdown('''
 #### Expressão da correlação.
