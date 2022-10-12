@@ -1,0 +1,39 @@
+<string> data_old 2022-10-12 15:58:03,666 O dataset contem 5 amostras e 11 colunas.
+<string> data_analytics 2022-10-12 15:58:25,755 A coluna para quantidades de numeros faltante no data set foi criada.
+utils.py _init_num_threads 2022-10-12 15:58:25,790 NumExpr defaulting to 8 threads..
+<string> data_analytics 2022-10-12 15:58:31,987 A coluna para quantidades de numeros faltante em porcentagem no data set foi criada.
+<string> data_analytics 2022-10-12 15:58:38,200 A coluna de tipo de dados foi criada para esse data set.
+<string> data_analytics 2022-10-12 15:58:46,955 A coluna de describe dos dados foi criada para esse data set.
+<string> data_analytics 2022-10-12 15:58:46,969 Realizamo o merge de todas as colunas criada.
+<string> data_analytics 2022-10-12 15:58:47,981 Criacao do grafico com a lib do plotly.
+<ipython-input-6-9ed3ab7c802e> distance_KM 2022-10-12 15:59:04,651 Calculo da distancia realizado.
+<string> data_new 2022-10-12 16:02:45,449 Colunas id e store_and_fwd_flag excluidas.
+<string> data_new 2022-10-12 16:02:51,669 Coluna vendor_id sendo trasnformada em categoria.
+<string> data_new 2022-10-12 16:02:58,059 Colunas pickup_datetime e dropoff_datetime em data.
+<string> data_new 2022-10-12 16:03:04,357 Coluna de agrupamento para pickup de longitude e latitude criada.
+<string> data_new 2022-10-12 16:03:10,692 Coluna de agrupamento para dropoff de longitude e latitude criada.
+<string> data_new 2022-10-12 16:03:18,696 Calculando os segundos da viagem realizado.
+<string> data_new 2022-10-12 16:03:34,249 Colunas referente a data, mês e ano criadas.
+<string> data_analytics 2022-10-12 16:03:40,599 A coluna para quantidades de numeros faltante no data set foi criada.
+<string> data_analytics 2022-10-12 16:03:46,947 A coluna para quantidades de numeros faltante em porcentagem no data set foi criada.
+<string> data_analytics 2022-10-12 16:03:53,157 A coluna de tipo de dados foi criada para esse data set.
+<string> data_analytics 2022-10-12 16:04:04,274 A coluna de describe dos dados foi criada para esse data set.
+<string> data_analytics 2022-10-12 16:04:04,287 Realizamo o merge de todas as colunas criada.
+<string> data_analytics 2022-10-12 16:04:04,649 Criacao do segundo tipo de grafico com a lib do plotly.
+<ipython-input-8-0d743eab327e> data_address 2022-10-12 16:08:41,559 Utilizando a latitude e longitude para trazer o endereço.
+<ipython-input-9-2fce891bc0a9> data_address 2022-10-12 16:09:37,638 Utilizando a latitude e longitude para trazer o endereço.
+<ipython-input-10-db8b32efdbc3> data_address 2022-10-12 16:10:57,953 Utilizando a latitude e longitude para trazer o endereço.
+<string> data_new 2022-10-12 16:11:29,511 Colunas id e store_and_fwd_flag excluidas.
+<string> data_new 2022-10-12 16:11:35,732 Coluna vendor_id sendo trasnformada em categoria.
+<string> data_new 2022-10-12 16:11:42,076 Colunas pickup_datetime e dropoff_datetime em data.
+<string> data_new 2022-10-12 16:11:48,299 Coluna de agrupamento para pickup de longitude e latitude criada.
+<string> data_new 2022-10-12 16:11:54,597 Coluna de agrupamento para dropoff de longitude e latitude criada.
+<string> data_new 2022-10-12 16:12:02,489 Calculando os segundos da viagem realizado.
+<string> data_new 2022-10-12 16:12:18,328 Colunas referente a data, mês e ano criadas.
+<string> data_analytics 2022-10-12 16:12:24,600 A coluna para quantidades de numeros faltante no data set foi criada.
+<string> data_analytics 2022-10-12 16:12:30,800 A coluna para quantidades de numeros faltante em porcentagem no data set foi criada.
+<string> data_analytics 2022-10-12 16:12:36,992 A coluna de tipo de dados foi criada para esse data set.
+<string> data_analytics 2022-10-12 16:12:48,407 A coluna de describe dos dados foi criada para esse data set.
+<string> data_analytics 2022-10-12 16:12:48,415 Realizamo o merge de todas as colunas criada.
+<string> data_analytics 2022-10-12 16:12:48,648 Criacao do segundo tipo de grafico com a lib do plotly.
+<string> distance_KM 2022-10-12 16:13:01,546 Calculo da distancia realizado.
