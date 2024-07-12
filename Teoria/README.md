@@ -665,7 +665,9 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 		Erro Quadrático Médio (MSE): 1
 
 - `Raiz do Erro Quadrático Médio (RMSE):`RMSE é a raiz quadrada do MSE. É na mesma unidade da variável dependente, facilitando a interpretação.
-\[RMSE = \sqrt{MSE}\]
+	\[
+	RMSE = \sqrt{MSE}
+	\]
 	- `O que mede:` Raiz quadrada do MSE, mantendo a unidade da variável dependente.
 	- `Quando usar:` Quando se deseja interpretar o erro na mesma unidade da variável dependente.
 	- `Limitações:` Sensível a outliers.
@@ -685,19 +687,27 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 		\]
 
 		2. Somar as diferenças quadráticas:
-		\[1 + 1 + 1 + 1 + 1 = 5\]
+		\[
+		1 + 1 + 1 + 1 + 1 = 5
+		\]
 
 		3. Dividir a soma pelo número de observações ( \( n = 5 \) ) para obter o MSE:
-		\[MSE = \frac{5}{5} = 1\]
+		\[
+		MSE = \frac{5}{5} = 1
+		\]
 
 		4. Calcular a raiz quadrada do MSE para obter o RMSE:
-		\[RMSE = \sqrt{1} = 1\]
+		\[
+		RMSE = \sqrt{1} = 1
+		\]
 
 		Resultado
 		Raiz do Erro Quadrático Médio (RMSE): 1
 
 - `Erro Percentual Absoluto Médio (MAPE):`MAPE é a média dos erros percentuais absolutos entre os valores previstos e os valores observados. É uma medida relativa, expressa em porcentagem.
-\[MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right|\]
+\[
+MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right|
+\]
 	- `O que mede:` Média dos erros percentuais absolutos entre os valores previstos e os valores observados.
 	- `Quando usar:` Para medir o erro em termos percentuais.
 	- `Limitações:` Pode ser enganoso se houver valores muito próximos de zero.
@@ -717,10 +727,14 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 		\]
 
 		2. Somar os erros percentuais absolutos:
-		\[10\% + 6.67\% + 8.33\% + 5.56\% + 5\% = 35.56\%\]
+		\[
+		10\% + 6.67\% + 8.33\% + 5.56\% + 5\% = 35.56\%
+		\]
 
 		3. Dividir a soma pelo número de observações ( \( n = 5 \) ):
-		\[MAPE = \frac{35.56\%}{5} = 7.11\%\]
+		\[
+		MAPE = \frac{35.56\%}{5} = 7.11\%
+		\]
 
 		Resultado
 		Erro Percentual Absoluto Médio (MAPE): 7.11%
