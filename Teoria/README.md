@@ -181,13 +181,20 @@ Seguindo o raciocínio leva três etapas para se fazer o calculo:
 
 Para trazer mais clareza vamos calcular o PCA (Análise de Componentes Principais) passo a passo usando um exemplo simples. Suponha que temos um pequeno conjunto de dados com duas variáveis (X e Y):
 
-|   | X  | Y  |
-|---|----|----|
-| 1 | 2  | 4  |
-| 2 | 3  | 5  |
-| 3 | 5  | 7  |
-| 4 | 6  | 8  |
-| 5 | 8  | 9  |
+\[
+\begin{array}{|c|c|c|}
+\hline
+   & X  & Y  \\
+\hline
+ 1 & 2  & 4  \\
+ 2 & 3  & 5  \\
+ 3 & 5  & 7  \\
+ 4 & 6  & 8  \\
+ 5 & 8  & 9  \\
+\hline
+\end{array}
+\]
+
 
 `Passo 1: Centralizar os dados`
 
@@ -196,13 +203,20 @@ Primeiro, centralizamos os dados subtraindo a média de cada variável.
 - Média de X: (2 + 3 + 5 + 6 + 8) / 5 = 4.8
 - Média de Y: (4 + 5 + 7 + 8 + 9) / 5 = 6.6
 
-|   | X  | Y  | X Centralizado | Y Centralizado |
-|---|----|----|----------------|----------------|
-| 1 | 2  | 4  | 2 - 4.8 = -2.8 | 4 - 6.6 = -2.6 |
-| 2 | 3  | 5  | 3 - 4.8 = -1.8 | 5 - 6.6 = -1.6 |
-| 3 | 5  | 7  | 5 - 4.8 =  0.2 | 7 - 6.6 =  0.4 |
-| 4 | 6  | 8  | 6 - 4.8 =  1.2 | 8 - 6.6 =  1.4 |
-| 5 | 8  | 9  | 8 - 4.8 =  3.2 | 9 - 6.6 =  2.4 |
+\[
+\begin{array}{|c|c|c|c|c|}
+\hline
+   & X & Y & \text{X Centralizado} & \text{Y Centralizado} \\
+\hline
+1 & 2 & 4 & 2 - 4.8 = -2.8 & 4 - 6.6 = -2.6 \\
+2 & 3 & 5 & 3 - 4.8 = -1.8 & 5 - 6.6 = -1.6 \\
+3 & 5 & 7 & 5 - 4.8 =  0.2 & 7 - 6.6 =  0.4 \\
+4 & 6 & 8 & 6 - 4.8 =  1.2 & 8 - 6.6 =  1.4 \\
+5 & 8 & 9 & 8 - 4.8 =  3.2 & 9 - 6.6 =  2.4 \\
+\hline
+\end{array}
+\]
+
 
 `Passo 2: Calcular a matriz de covariância`
 
@@ -221,18 +235,25 @@ Para este exemplo, a matriz de covariância é:
 - Cov(X, Y) = \(\frac{1}{4} \sum_{i=1}^{5} (X_i - \bar{X})(Y_i - \bar{Y})\)
 - Cov(Y, Y) = \(\frac{1}{4} \sum_{i=1}^{5} (Y_i - \bar{Y})^2\)
 
-| X Centralizado | Y Centralizado | (X - X̄)(X - X̄) | (X - X̄)(Y - Ȳ) | (Y - Ȳ)(Y - Ȳ) |
-|----------------|----------------|-----------------|-----------------|-----------------|
-| -2.8           | -2.6           | 7.84            | 7.28            | 6.76            |
-| -1.8           | -1.6           | 3.24            | 2.88            | 2.56            |
-| 0.2            | 0.4            | 0.04            | 0.08            | 0.16            |
-| 1.2            | 1.4            | 1.44            | 1.68            | 1.96            |
-| 3.2            | 2.4            | 10.24           | 7.68            | 5.76            |
-| Total          | Total          | 22.8            | 19.6            | 17.2            |
+\[
+\begin{array}{|c|c|c|c|c|}
+\hline
+\text{X Centralizado} & \text{Y Centralizado} & (X - \bar{X})(X - \bar{X}) & (X - \bar{X})(Y - \bar{Y}) & (Y - \bar{Y})(Y - \bar{Y}) \\
+\hline
+-2.8 & -2.6 & 7.84 & 7.28 & 6.76 \\
+-1.8 & -1.6 & 3.24 & 2.88 & 2.56 \\
+ 0.2 &  0.4 & 0.04 & 0.08 & 0.16 \\
+ 1.2 &  1.4 & 1.44 & 1.68 & 1.96 \\
+ 3.2 &  2.4 & 10.24 & 7.68 & 5.76 \\
+\hline
+\text{Total} & \text{Total} & 22.8 & 19.6 & 17.2 \\
+\hline
+\end{array}
+\]
 
-- Cov(X, X) = \(\frac{22.8}{4} = 5.7\)
-- Cov(X, Y) = \(\frac{19.6}{4} = 4.9\)
-- Cov(Y, Y) = \(\frac{17.2}{4} = 4.3\)
+- Cov(X, X) = $\frac{22.8}{4} = 5.7$
+- Cov(X, Y) = $\frac{19.6}{4} = 4.9$
+- Cov(Y, Y) = $\frac{17.2}{4} = 4.3$
 
 Matriz de covariância:
 
@@ -340,9 +361,11 @@ Spearman é o que chamamos de não paramétrico ou seja diferente da regressão 
 
 - `Coeficiente de Cramér's V:` Utilizaremos o Cramers’V, quando estivermos falando da associação entre duas variáveis categóricas.
 O resultado advindo do teste Cramers’V , varia de 0 até 1, onde 0 indica que não existe nenhuma associação entre as variáveis, enquanto 1 indica uma associação perfeita.
+
   \[
   V = \sqrt{\frac{\chi^2}{n \times \min(k-1, r-1)}}
   \]
+
   Onde \(\chi^2\) é o valor do teste qui-quadrado, \(n\) é o tamanho da amostra, \(k\) é o número de colunas e \(r\) é o número de linhas.
   - \( V = 0 \): Nenhuma associação.
   - \( V = 1 \): Associação perfeita.
@@ -497,13 +520,20 @@ Exemplo Manual de Regressão Linear
 
 Vamos usar um conjunto de dados fictício com 5 pontos. A variável independente \( X \) e a variável dependente \( Y \) são:
 
-| \( X \) | \( Y \) |
-|-------|-------|
-| 1     | 2     |
-| 2     | 3     |
-| 3     | 5     |
-| 4     | 4     |
-| 5     | 6     |
+\[
+\begin{array}{|c|c|}
+\hline
+X & Y \\
+\hline
+1 & 2 \\
+2 & 3 \\
+3 & 5 \\
+4 & 4 \\
+5 & 6 \\
+\hline
+\end{array}
+\]
+
 
 1. Calcular as Médias de \( X \) e \( Y \):
 
@@ -515,9 +545,9 @@ Vamos usar um conjunto de dados fictício com 5 pontos. A variável independente
 \bar{Y} = \frac{2 + 3 + 5 + 4 + 6}{5} = 4
 \]
 
-2. Calcular os Coeficientes da Regressão Linear (\( \beta_0 \) e \( \beta_1 \)):
+2. Calcular os Coeficientes da Regressão Linear ( $\beta_0$ e $\beta_1$ ):
 
-\( \beta_1 \) (slope):
+$\beta_1$ (slope):
 
 \[
 \beta_1 = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2}
@@ -541,13 +571,13 @@ Primeiro, vamos calcular as somas:
 = (-2)^2 + (-1)^2 + (0)^2 + (1)^2 + (2)^2 = 4 + 1 + 0 + 1 + 4 = 10
 \]
 
-Agora podemos calcular \( \beta_1 \):
+Agora podemos calcular $\beta_1$:
 
 \[
 \beta_1 = \frac{9}{10} = 0.9
 \]
 
-\( \beta_0 \) (intercept):
+$\beta_0$ (intercept):
 
 \[
 \beta_0 = \bar{Y} - \beta_1 \bar{X} = 4 - 0.9 \times 3 = 4 - 2.7 = 1.3
@@ -563,13 +593,13 @@ Agora podemos calcular \( \beta_1 \):
 
 Agora podemos usar a equação da regressão para prever os valores de \( Y \) para cada valor de \( X \) no nosso conjunto de dados:
 
-| \( X \) | \( Y \) observado | \( \hat{Y} \) |
+| $X$ | $Y$ observado | $\hat{Y}$ |
 |-------|------------------|-------------|
-| 1     | 2                | \( 1.3 + 0.9 \times 1 = 2.2 \) |
-| 2     | 3                | \( 1.3 + 0.9 \times 2 = 3.1 \) |
-| 3     | 5                | \( 1.3 + 0.9 \times 3 = 4.0 \) |
-| 4     | 4                | \( 1.3 + 0.9 \times 4 = 4.9 \) |
-| 5     | 6                | \( 1.3 + 0.9 \times 5 = 5.8 \) |
+| 1     | 2                | $1.3 + 0.9 \times 1 = 2.2$ |
+| 2     | 3                | $1.3 + 0.9 \times 2 = 3.1$ |
+| 3     | 5                | $1.3 + 0.9 \times 3 = 4.0$ |
+| 4     | 4                | $1.3 + 0.9 \times 4 = 4.9$ |
+| 5     | 6                | $1.3 + 0.9 \times 5 = 5.8$ |
 
 Conclusão:
 
@@ -585,7 +615,9 @@ A equação da regressão linear para os dados fornecidos é:
 Avaliar um modelo de regressão linear é fundamental para entender sua eficácia e fazer ajustes conforme necessário. Abaixo estão as principais formas de avaliar um modelo de regressão linear utilizando o algoritmo dos mínimos quadrados ordinários (OLS):
 
 - `R² (Coeficiente de Determinação): `O R² mede a proporção da variância na variável dependente que é previsível a partir das variáveis independentes. Ele varia de 0 a 1, onde 1 indica que o modelo explica toda a variância dos dados
-\[R^2 = 1 - \frac{SS_{res}}{SS_{tot}}\]
+	\[
+	R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
+	\]
 	- `O que mede:` Proporção da variância na variável dependente explicada pelas variáveis independentes.
 	- `Quando usar:` Para avaliar a capacidade explicativa do modelo. Útil para comparar diferentes modelos com as mesmas variáveis dependentes.
 	- `Limitações:` Pode ser enganoso em modelos com muitas variáveis independentes.
@@ -614,7 +646,9 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 		𝑅² = 1 − 𝑆𝑆𝐸 / 𝑆𝑆𝑇 = 1 − 5 / 68 = 0.9265
 
 - `Erro Médio Absoluto (MAE):`MAE é a média das diferenças absolutas entre os valores previstos e os valores observados. Fornece uma ideia de quão grandes são os erros em média.
-	\[MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|\]
+	\[
+	MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+	\]
 	- `O que mede:` Média das diferenças absolutas entre os valores previstos e os valores observados.
 	- `Quando usar:` Quando se deseja uma medida simples e intuitiva do erro médio.
 	- `Limitações:` Não diferencia entre erros positivos e negativos.
@@ -623,22 +657,28 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 	**Previsões do Modelo**: [11, 14, 13, 17, 19]
 	`Passos do cálculo:`
 	1. Calcular as diferenças absolutas entre os valores observados e as previsões:
-   \[\begin{align*}
+   \[
+	\begin{align*}
    |10 - 11| & = 1 \\
    |15 - 14| & = 1 \\
    |12 - 13| & = 1 \\
    |18 - 17| & = 1 \\
    |20 - 19| & = 1 \\
-   \end{align*}\]
+   \end{align*}
+   \]
 	2. Somar as diferenças absolutas:
    \[1 + 1 + 1 + 1 + 1 = 5\]
-	3. Dividir a soma pelo número de observações ( \( n = 5 \) ):
-   \[MAE = \frac{5}{5} = 1\]
+	3. Dividir a soma pelo número de observações ( n = 5  ):
+   \[
+	MAE = \frac{5}{5} = 1
+	\]
 	Resultado: Erro Médio Absoluto (MAE): 1
 
 
 - `Erro Quadrático Médio (MSE):`MSE é a média dos quadrados das diferenças entre os valores previstos e os valores observados. Penaliza erros maiores mais severamente.
-\[MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\]
+	\[
+	MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+	\]
 	- `O que mede:` Média dos quadrados das diferenças entre os valores previstos e os valores observados.
 	- `Quando usar:` Quando se deseja penalizar mais severamente grandes erros.
 	- `Limitações:` Sensível a outliers.
@@ -647,19 +687,25 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 	   Previsões do Modelo: [11, 14, 13, 17, 19]
 	   `Passos do cálculo:`
 		1. Calcular as diferenças quadráticas entre os valores observados e as previsões:
-		\[\begin{align*}
+		\[
+		\begin{align*}
 		(10 - 11)^2 & = 1 \\
 		(15 - 14)^2 & = 1 \\
 		(12 - 13)^2 & = 1 \\
 		(18 - 17)^2 & = 1 \\
 		(20 - 19)^2 & = 1 \\
-		\end{align*}\]
+		\end{align*}
+		\]
 
 		2. Somar as diferenças quadráticas:
-		\[1 + 1 + 1 + 1 + 1 = 5\]
+		\[
+		1 + 1 + 1 + 1 + 1 = 5
+		\]
 
-		3. Dividir a soma pelo número de observações ( \( n = 5 \) ):
-		\[MSE = \frac{5}{5} = 1\]
+		3. Dividir a soma pelo número de observações ( n = 5 ):
+		\[
+		MSE = \frac{5}{5} = 1
+		\]
 
 		Resultado:
 		Erro Quadrático Médio (MSE): 1
@@ -740,50 +786,70 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{y_i - \hat{y}_i}{y_i} \right|
 		Erro Percentual Absoluto Médio (MAPE): 7.11%
 
 - `Ajustado R² (Adjusted R²):`O R² ajustado leva em conta o número de variáveis independentes no modelo. É útil para comparar modelos com diferentes números de variáveis.
-\[
-R_{adj}^2 = 1 - \left( \frac{SS_{res} / (n - p - 1)}{SS_{tot} / (n - 1)} \right)
-\]
+	\[
+	R_{adj}^2 = 1 - \left( \frac{SS_{res} / (n - p - 1)}{SS_{tot} / (n - 1)} \right)
+	\]
 	- `O que mede:` Similar ao R², mas ajusta pela quantidade de variáveis independentes no modelo.
 	- `Quando usar:` Para comparar modelos com diferentes números de variáveis independentes.
 	- `Limitações:` Pode não penalizar suficientemente a complexidade do modelo em datasets muito grandes.
 	- `Cálculo manual do coeficiente de determinação ajustado (Adjusted R²):`
 	Valores Observados: [10, 15, 12, 18, 20]
 	Previsões do Modelo: [11, 14, 13, 17, 19]
-	Número de Observações ( \( n \) ): 5
-	Número de Preditores ( \( k \) ): 1
+	Número de Observações ( n  ): 5
+	Número de Preditores ( k ): 1
 	`Passos do cálculo:`
-		1. Média dos valores observados ( \( \bar{y} \) ): 15
+		1. Média dos valores observados ( $\bar{y}$ ): 15
 		2. Soma Total dos Quadrados (SST): 68
 		3. Soma dos Quadrados dos Resíduos (SSE): 5
-		4. Coeficiente de Determinação ( \( R^2 \) ): 0.9265
-		5. Coeficiente de Determinação Ajustado ( \( R^2_{ajustado} \) ):
-		\[ R^2_{ajustado} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right) \]
-		\[ R^2_{ajustado} = 1 - \left( \frac{(1 - 0.9265)(5 - 1)}{5 - 1 - 1} \right) \]
-		\[ R^2_{ajustado} = 1 - \left( \frac{0.0735 \times 4}{3} \right) \]
-		\[ R^2_{ajustado} = 1 - \left( \frac{0.294}{3} \right) \]
-		\[ R^2_{ajustado} = 1 - 0.098 \]
-		\[ R^2_{ajustado} = 0.902 \]
+		4. Coeficiente de Determinação ( $R^2$ ): 0.9265
+		5. Coeficiente de Determinação Ajustado ( $R^2_{ajustado}$ ):
+		\[ 
+		R^2_{ajustado} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right)
+		\]
+		\[ 
+		R^2_{ajustado} = 1 - \left( \frac{(1 - 0.9265)(5 - 1)}{5 - 1 - 1} \right)
+		\]
+		\[
+		R^2_{ajustado} = 1 - \left( \frac{0.0735 \times 4}{3} \right)
+		\]
+		\[
+		R^2_{ajustado} = 1 - \left( \frac{0.294}{3} \right)
+		\]
+		\[
+		R^2_{ajustado} = 1 - 0.098
+		\]
+		\[
+		R^2_{ajustado} = 0.902
+		\]
 
 - `Teste F:`O teste F avalia a significância global do modelo, verificando se pelo menos uma variável independente tem um coeficiente diferente de zero.
-\[F = \left( \frac{R^2 / p}{(1 - R^2) / (n - p - 1)} \right)\]
+	\[
+	F = \left( \frac{R^2 / p}{(1 - R^2) / (n - p - 1)} \right)
+	\]
 	- `O que mede:` Significância global do modelo.
 	- `Quando usar:` Para verificar se pelo menos uma variável independente tem um efeito significativo na variável dependente.
 	- `Limitações:` Não fornece informações sobre quais variáveis específicas são significativas.
 	- `Cálculo manual do Teste F usando a fórmula:`
 	Dados:
-	Coeficiente de Determinação (\( R^2 \)): 0.85
-	Número de Preditores (\( p \)): 2
-	Número de Observações (\( n \)): 10
+	Coeficiente de Determinação ( $R^2$ ): 0.85
+	Número de Preditores ( $p$ ): 2
+	Número de Observações ( $n$ ): 10
 	`Passos do cálculo:`
 
-		1. Calcular a parte superior da fração (\( \frac{R^2}{p} \)):
-		\[\frac{R^2}{p} = \frac{0.85}{2} = 0.425\]
+		1. Calcular a parte superior da fração ( $\frac{R^2}{p}$ ):
+		\[
+		\frac{R^2}{p} = \frac{0.85}{2} = 0.425
+		\]
 
-		2. Calcular a parte inferior da fração (\( \frac{1 - R^2}{n - p - 1}\)):
-		\[\frac{1 - R^2}{n - p - 1} = \frac{1 - 0.85}{10 - 2 - 1} = \frac{0.15}{7} \approx 0.0214\]
+		2. Calcular a parte inferior da fração ($\frac{1 - R^2}{n - p - 1}$):
+		\[
+		\frac{1 - R^2}{n - p - 1} = \frac{1 - 0.85}{10 - 2 - 1} = \frac{0.15}{7} \approx 0.0214
+		\]
 
 		3. Calcular o valor do Teste F:
-		\[F = \frac{0.425}{0.0214} \approx 19.86\]
+		\[
+		F = \frac{0.425}{0.0214} \approx 19.86
+		\]
 
 		Resultado
 		Valor do Teste F: 19.86
