@@ -609,6 +609,9 @@ A equação da regressão linear para os dados fornecidos é:
 \hat{Y} = 1.3 + 0.9X
 \]
 
+`Algoritmo de Treinamento da Regressão Multipla`
+O calculo da Regressão Linear para encontrar um ponto que ainda não consta na base de dados pode ser definida 
+pela expressão abaixo:
 
 `Métodos de avaliação do modelo`
 
