@@ -609,9 +609,127 @@ A equação da regressão linear para os dados fornecidos é:
 \hat{Y} = 1.3 + 0.9X
 \]
 
-`Algoritmo de Treinamento da Regressão Multipla`
+`Algoritmo de Treinamento da Regressão Multipla OLS`
 O calculo da Regressão Multipla para encontrar um ponto que ainda não consta na base de dados pode ser definida 
 pela expressão abaixo:
+
+Suponha que temos um conjunto de dados com uma variável dependente \( Y \) e duas variáveis independentes \(X_1\) e \( X_2 \). Queremos ajustar um modelo de regressão linear múltipla para prever \( Y \) com base em \( X_1 \) e \( X_2 \).
+
+`Formulação do Modelo`
+
+O modelo de regressão linear múltipla é dado por:
+
+\[ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon \]
+
+Onde:
+- \( Y \) é a variável dependente (a que queremos prever),
+- \( X_1 \) e \( X_2 \) são as variáveis independentes,
+- \( \beta_0, \beta_1, \) e \( \beta_2 \) são os coeficientes a serem estimados,
+- \( \epsilon \) é o erro aleatório.
+
+Estimação dos Coeficientes (\( \beta \))
+
+Para estimar os coeficientes \( \beta_0, \beta_1 \), e \( \beta_2 \), utilizamos o método dos Mínimos Quadrados Ordinários (OLS), que minimiza a soma dos quadrados dos resíduos.
+
+Os coeficientes são dados por:
+
+\[ \hat{\beta} = (X^T X)^{-1} X^T Y \]
+
+Onde:
+- \( \hat{\beta} \) é o vetor de coeficientes estimados,
+- \( X \) é a matriz de variáveis independentes (com uma coluna de 1s para \( \beta_0 \)),
+- \( Y \) é o vetor da variável dependente.
+
+`Previsão`
+
+Uma vez que os coeficientes \( \hat{\beta} \) são estimados, podemos prever \( Y \) para novos valores de \( X_1 \) e \( X_2 \):
+
+\[ \hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 \]
+
+Suponha os seguintes dados fictícios:
+
+| \( X_1 \) | \( X_2 \) | \( Y \) |
+|-----------|-----------|---------|
+| 1         | 2         | 3       |
+| 2         | 3         | 4       |
+| 3         | 4         | 5       |
+| 4         | 5         | 6       |
+
+Vamos calcular passo a passo os coeficientes \( \beta_0, \beta_1, \) e \( \beta_2 \).
+
+`1. Montagem das Matrizes:`
+
+   \( X \) (matriz de variáveis independentes):
+
+   \[
+   X = \begin{bmatrix}
+   1 & 1 & 2 \\
+   1 & 2 & 3 \\
+   1 & 3 & 4 \\
+   1 & 4 & 5
+   \end{bmatrix}
+   \]
+
+   \( Y \) (vetor da variável dependente):
+
+   \[
+   Y = \begin{bmatrix}
+   3 \\
+   4 \\
+   5 \\
+   6
+   \end{bmatrix}
+   \]
+
+`2. Estimação dos Coeficientes:`
+
+   \( \hat{\beta} = (X^T X)^{-1} X^T Y \)
+
+   Calculando \( X^T X \):
+
+   \[
+   X^T X = \begin{bmatrix}
+   4 & 10 & 14 \\
+   10 & 30 & 40 \\
+   14 & 40 & 54
+   \end{bmatrix}
+   \]
+
+   Calculando \( (X^T X)^{-1} \):
+
+   \[
+   (X^T X)^{-1} = \begin{bmatrix}
+   13.5 & -5 & 0.5 \\
+   -5 & 2.5 & -1 \\
+   0.5 & -1 & 0.5
+   \end{bmatrix}
+   \]
+
+   Calculando \( X^T Y \):
+
+   \[
+   X^T Y = \begin{bmatrix}
+   18 \\
+   54 \\
+   74
+   \end{bmatrix}
+   \]
+
+   Finalmente, calculando \( \hat{\beta} \):
+
+   \[
+   \hat{\beta} = \begin{bmatrix}
+   0.5 \\
+   0.5 \\
+   0.5
+   \end{bmatrix}
+   \]
+
+   Portanto, o modelo estimado é:
+
+   \[
+   \hat{Y} = 0.5 + 0.5 X_1 + 0.5 X_2
+   \]
 
 `Métodos de avaliação do modelo`
 
