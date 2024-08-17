@@ -1,0 +1,14 @@
+Métrica,Valor
+Setor,"{'Tecnologia': 50, 'Saúde': 30, 'Financeiro': 20}"
+Ramo de Atividade,"{'Desenvolvimento de Software': 40, 'Hospitais': 20, 'Bancos': 10, 'Seguros': 30}"
+Nível de Atividade,"{'Alta': 60, 'Média': 30, 'Baixa': 10}"
+Faturamento Estimado,"{'0-1M': 20, '1M-10M': 40, '10M-50M': 30, '50M+': 10}"
+Número de Funcionários,"{'1-10': 25, '11-50': 30, '51-200': 20, '201-500': 15, '500+': 10}"
+Idade Média das Empresas,10
+Desvio Padrão da Idade,5
+Idade Mínima,1
+Idade Máxima,20
+Percentual de Empresas Ativas,80
+Número Médio de Filiais Ativas,2
+Desvio Padrão do Número de Filiais,1
+Máximo de Filiais,5

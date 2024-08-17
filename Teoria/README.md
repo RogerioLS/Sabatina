@@ -15,7 +15,7 @@ Os não aleatórios não são aleatórios - existem porque a variável em si é 
 
 Com isso esses tipos de missings podem ser importante para entendermos como fazermos uma boa imputação desses valores faltantes seja em nosso banco de dados ou em nosso modelos.
 
-> [!IMPORTANT]  
+> [!IMPORTANT] 
 > Você sabia?
 > 
 > - NA significa “No answer” (“Sem resposta”) ou “Not applicable” (“Não se aplica”).
@@ -695,6 +695,7 @@ Vamos calcular passo a passo os coeficientes \( \beta_0, \beta_1, \) e \( \beta_
    \end{bmatrix}
    \]
 
+
    Calculando \( (X^T X)^{-1} \):
 
    \[
@@ -704,6 +705,13 @@ Vamos calcular passo a passo os coeficientes \( \beta_0, \beta_1, \) e \( \beta_
    0.5 & -1 & 0.5
    \end{bmatrix}
    \]
+
+   `Obs:` Para se calcular a matrix inversa de ordem N:
+	1º Encontre a determinante matriz pode se utilizar a regra de `SARUS` sempre o valor que der na direita menos o que der na esquerda;
+	2º Encontre a matriz dos cofatores e calcule cada uma das suas determinantes;
+	3º Monte a matriz dos cofatores mantendo a regra do mantém e troca sinal;
+	4º Faça a transposta dessa matriz cofatora, o que linha vira coluna;
+	5º Pega a matriz transposta e divida pela determinante encontra no começo;
 
    Calculando \( X^T Y \):
 
@@ -730,6 +738,8 @@ Vamos calcular passo a passo os coeficientes \( \beta_0, \beta_1, \) e \( \beta_
    \[
    \hat{Y} = 0.5 + 0.5 X_1 + 0.5 X_2
    \]
+
+`Hyperparametros para modelos de regressão`
 
 `Métodos de avaliação do modelo`
 
@@ -774,8 +784,8 @@ Avaliar um modelo de regressão linear é fundamental para entender sua eficáci
 	- `Quando usar:` Quando se deseja uma medida simples e intuitiva do erro médio.
 	- `Limitações:` Não diferencia entre erros positivos e negativos.
 	- `Cálculo manual do Erro Médio Absoluto (MAE):`
-	**Valores Observados**: [10, 15, 12, 18, 20]
-	**Previsões do Modelo**: [11, 14, 13, 17, 19]
+	`Valores Observados:` [10, 15, 12, 18, 20]
+	`Previsões do Modelo:` [11, 14, 13, 17, 19]
 	`Passos do cálculo:`
 	1. Calcular as diferenças absolutas entre os valores observados e as previsões:
    \[
@@ -1028,4 +1038,8 @@ Para que a regressão linear produza estimativas válidas e significativas, algu
 
 ---
 
-Olhar as cartas dos fundos, e tentar extrair o máximo de gráficos,
+![alt text](image.png)
+
+Olhar as cartas dos fundos, e tentar extrair o máximo de gráficos.
+
+[![alanceloth's GitHub | Stats](https://stats.quira.sh/rogeriols/github?theme=dark)](https://quira.sh?utm_source=widgets&utm_campaign=rogeriols)
