@@ -1018,13 +1018,17 @@ Para que a regressão linear produza estimativas válidas e significativas, algu
 - O erro é a diferença entre o valor verdadeiro com o valor previsto pelo modelo, essa equação é chamada de função de erro (LOSS).
 - `OBS:` Nem sempre o modelo de OLS consegue analisar de forma eficiente os dados, uma situação é quando o dado mostra multi-colinearidade, isto é, quando as variáveis de entrada estão correlacionadas entre si e também com a variável de resposta.
 
-2. Regularização L1, L2, Elastic Net
-	- jjkjk
+2. Regularização L1, L2, Elastic Net:
+	- L2 -> Usado para multicolinariedade
+	- L1 -> Bom para selecionar
+	- Elastic Net -> 
 3. Árvore de regressão
+4. GBM
 4. Análise de resíduos
 5. Modelos lineares generalizados (GLM)
 
 **Classificação**
+
 
 **Agrupamento**
 
@@ -1035,6 +1039,8 @@ Para que a regressão linear produza estimativas válidas e significativas, algu
 - Algoritmo de treinamento;
 - Metodos de avaliação do modelo;
 - O nome do modelo já o final do metodo do modelo;
+
+**LLM**
 
 ---
 
