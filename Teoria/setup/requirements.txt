@@ -1,0 +1,49 @@
+# Bibliotecas básicas
+numpy
+pandas
+scipy
+
+# Visualização de dados
+matplotlib
+seaborn
+plotly
+
+# Machine Learning
+scikit-learn
+xgboost
+lightgbm
+catboost
+
+# Deep Learning
+torch
+torchvision
+torchaudio
+tensorflow
+keras
+
+# Processamento de texto
+nltk
+spacy
+
+# Manipulação de dados
+dask
+polars
+
+# Otimização e programação matemática
+cvxpy
+sympy
+
+# Engenharia de características
+feature-engine
+
+# Leitura de arquivos diversos
+openpyxl
+pyarrow
+
+# Web scraping e APIs
+requests
+beautifulsoup4
+
+# Outros utilitários úteis
+tqdm
+joblib
